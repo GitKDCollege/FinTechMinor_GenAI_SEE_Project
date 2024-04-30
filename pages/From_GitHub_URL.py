@@ -15,7 +15,7 @@ url = st.text_input('')
 if(url):
     uname_and_reponame = backend.get_username_and_repo_from_url(url)
     # reports_dir = f"""D:/ACADEMICS/SEM4/FINTECH_MINOR/GenAI_Prompt_Engineering/Mini_Project_and_SEE/reports_generated/{uname_and_reponame}"""
-    # reports_dir = f"""reports_generated/{uname_and_reponame}"""
+    reports_dir = f"""reports_generated/{uname_and_reponame}"""
 
 def generate_report():
     if st.button("Generate Report"):
