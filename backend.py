@@ -1,21 +1,24 @@
 
 # Module Imports
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
+import streamlit as st
 import base64
 import streamlit as st
 from github import Github,Auth
 import google.generativeai as genai
 
-load_dotenv()
+# load_dotenv()
 
 def create_get_gemini_model():
-    genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY'))
+    # genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY'))
+    genai.configure(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
     model = genai.GenerativeModel('gemini-pro')
     return model
 
 def create_get_github_object():
-    g = Github(auth=Auth.Token(os.getenv('GITHUB_ACCESS_TOKEN')))
+    # g = Github(auth=Auth.Token(os.getenv('GITHUB_ACCESS_TOKEN')))
+    g = Github(auth=Auth.Token(st.secrets["GITHUB_ACCESS_TOKEN"]))
     return g
 
 def get_username_and_repo_from_url(url):
