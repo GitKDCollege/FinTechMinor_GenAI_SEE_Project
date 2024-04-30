@@ -14,7 +14,6 @@ url = st.text_input('')
 
 if(url):
     uname_and_reponame = backend.get_username_and_repo_from_url(url)
-    # reports_dir = f"""D:/ACADEMICS/SEM4/FINTECH_MINOR/GenAI_Prompt_Engineering/Mini_Project_and_SEE/reports_generated/{uname_and_reponame}"""
     reports_dir = f"""reports_generated/{uname_and_reponame}"""
 
 def generate_report():
@@ -25,7 +24,6 @@ def generate_report():
                 try:
                     files = backend.process_url(url)
                     st.success("Report Generated Successfully")
-                    st.write(f"""Report saved in: ../reports_generated/{uname_and_reponame}""")
                 except Exception as e:
                     st.error(f"An error occurred: {str(e)}")
 
@@ -38,7 +36,6 @@ def get_all_files(root,files=None):
             get_all_files(f"{root}/{item}",files)
         else:
             files.append(f"{root}/{item}")
-    # return [("/").join(file.split("/")[9:]) for file in files]
     return [("/").join(file.split("/")[3:]) for file in files]
 try:
     if(os.path.exists(reports_dir)):
