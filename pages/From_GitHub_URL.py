@@ -39,7 +39,7 @@ def get_all_files(root,files=None):
         else:
             files.append(f"{root}/{item}")
     # return [("/").join(file.split("/")[9:]) for file in files]
-    return [("/").join(file.split("/")[4:]) for file in files]
+    return [("/").join(file.split("/")[3:]) for file in files]
 try:
     if(os.path.exists(reports_dir)):
         st.session_state.clicked=True
