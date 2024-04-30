@@ -4,6 +4,7 @@ import backend
 # from pathlib import Path
 
 st.write(f"{os.getcwd()}")
+st.write(f"{os.listdir()}")
 
 if 'clicked' not in st.session_state:
     st.session_state.clicked=False
