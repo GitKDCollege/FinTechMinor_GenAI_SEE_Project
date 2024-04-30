@@ -1,0 +1,23 @@
+Below I have provided the code, perform the following tasks given:
+
+1. Test the Code:
+    - Perform static testing of the code.
+    - Conduct code reviews to identify any potential issues in logic, design, or implementation.
+    - Use static code analysis tools to identify any potential bugs, vulnerabilities, or other issues.
+    - Perform code linting to check for adherence to coding standards and best practices.
+    - Analyze the complexity of the code and identify areas that could benefit from simplification.
+    - Analyze code dependencies and report any issues related to excessive or inappropriate dependencies.
+
+2. Correct the Code:
+    - Provide corrections for any issues identified in the code, including fixing bugs, addressing vulnerabilities, and ensuring adherence to best practices.
+    - Suggest and implement improvements to reduce code complexity and streamline dependencies.
+
+3. Provide a Detailed Review:
+    - Provide a detailed review of the errors found during the testing and analysis phases.
+    - Describe what has been fixed and what improvements have been suggested and made.
+    - Explain the reasoning behind each correction and improvement, including how it enhances the overall quality of the code.
+
+4. Provide the Fixed Code:
+    - Return the corrected and improved version of the code.
+
+When performing the above tasks, ensure that all actions taken adhere to industry best practices and aim to improve code quality, maintainability, and performance. Make clear comments and document any changes made to the code
