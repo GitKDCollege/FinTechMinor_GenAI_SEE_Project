@@ -14,7 +14,8 @@ url = st.text_input('')
 
 if(url):
     uname_and_reponame = backend.get_username_and_repo_from_url(url)
-    reports_dir = f"""D:/ACADEMICS/SEM4/FINTECH_MINOR/GenAI_Prompt_Engineering/Mini_Project_and_SEE/reports_generated/{uname_and_reponame}"""
+    # reports_dir = f"""D:/ACADEMICS/SEM4/FINTECH_MINOR/GenAI_Prompt_Engineering/Mini_Project_and_SEE/reports_generated/{uname_and_reponame}"""
+    reports_dir = f"""../reports_generated/{uname_and_reponame}"""
 
 def generate_report():
     if st.button("Generate Report"):
@@ -37,7 +38,8 @@ def get_all_files(root,files=None):
             get_all_files(f"{root}/{item}",files)
         else:
             files.append(f"{root}/{item}")
-    return [("/").join(file.split("/")[9:]) for file in files]
+    # return [("/").join(file.split("/")[9:]) for file in files]
+    return [("/").join(file.split("/")[4:]) for file in files]
 try:
     if(os.path.exists(reports_dir)):
         st.session_state.clicked=True
