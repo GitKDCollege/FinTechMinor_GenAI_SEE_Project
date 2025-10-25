@@ -12,7 +12,7 @@ from google import genai
 
 def create_get_gemini_model():
     # genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY'))
-    client = genai.client(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
+    client = genai.Client(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
     return client
 
 def create_get_github_object():
@@ -109,5 +109,6 @@ def process_single_file(file_content):
 if __name__=="__main__":
     url = input("""Enter the Github Repository URL\nFormat : "https://github.com/<username>/<repository_name>"\n: """).strip()
     process_url(url)
+
 
 
