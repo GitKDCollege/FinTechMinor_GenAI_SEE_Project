@@ -12,9 +12,8 @@ from google import genai
 
 def create_get_gemini_model():
     # genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY'))
-    genai.configure(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    return model
+    client = genai.client(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
+    return client
 
 def create_get_github_object():
     # g = Github(auth=Auth.Token(os.getenv('GITHUB_ACCESS_TOKEN')))
@@ -55,9 +54,9 @@ def write_file(uname_and_reponame,file_path,file_content):
     with open(f"""./reports_generated/{uname_and_reponame}/{file_path}""",'w',encoding='utf-8') as f:
         f.write(file_content)
 
-def get_report_from_gemini(model,file_content,prompt_path='./prompt1.txt'):
+def get_report_from_gemini(client,file_content,prompt_path='./prompt1.txt'):
     prompt=load_prompt(prompt_path)
-    report = model.generate_content(f"""{prompt}/n{file_content}""")
+    report = client.models.generate_content(model="gemini-2.0-flash-lite",contents=f"""{prompt}/n{file_content}""")
     buffer=""""""
     for part in report.parts:
         buffer+=part.text
@@ -110,4 +109,5 @@ def process_single_file(file_content):
 if __name__=="__main__":
     url = input("""Enter the Github Repository URL\nFormat : "https://github.com/<username>/<repository_name>"\n: """).strip()
     process_url(url)
+
 
