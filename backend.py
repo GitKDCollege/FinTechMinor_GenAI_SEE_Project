@@ -6,14 +6,14 @@ import streamlit as st
 import base64
 import streamlit as st
 from github import Github,Auth
-import google.generativeai as genai
+from google import genai
 
 # load_dotenv()
 
 def create_get_gemini_model():
     # genai.configure(api_key=os.getenv('GOOGLE_GEMINI_API_KEY'))
     genai.configure(api_key=st.secrets["GOOGLE_GEMINI_API_KEY"])
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-1.5-flash')
     return model
 
 def create_get_github_object():
@@ -110,3 +110,4 @@ def process_single_file(file_content):
 if __name__=="__main__":
     url = input("""Enter the Github Repository URL\nFormat : "https://github.com/<username>/<repository_name>"\n: """).strip()
     process_url(url)
+
